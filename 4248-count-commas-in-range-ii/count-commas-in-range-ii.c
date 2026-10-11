@@ -3,8 +3,8 @@ long long countCommas(long long n) {
     long long threshold =1000;
     while(n >= threshold){
         tot+=(n-threshold)+1;
-        //if(threshold> LLONG_MAX /1000)
-          //  break;
+        if(threshold> LLONG_MAX /1000)
+            break;
         threshold*=1000;
     }
     return tot;
