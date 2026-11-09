@@ -5,17 +5,14 @@ int reverse(int x) {
     
     while (x != 0) {
         int remainder = x % 10;
-        x /= 10;
-        
-        // Return 0 if the next step will overflow or underflow 32-bit int
         if (reversed > INT_MAX / 10 || (reversed == INT_MAX / 10 && remainder > 7)) {
             return 0;
         }
         if (reversed < INT_MIN / 10 || (reversed == INT_MIN / 10 && remainder < -8)) {
             return 0;
         }
-        
         reversed = reversed * 10 + remainder;
+        x /= 10;
     }
     
     return reversed;
